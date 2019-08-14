@@ -23,6 +23,11 @@ abstract class InputHandler {
 
     static Future<void> submitInput(String chatHandle) async {
         final Response resp =   await get("http://farragofiction.com:8500/TalkButlerBot?chatHandle=$chatHandle&input=${textAreaElement.value}");
+        if(resp.body.contains("wait")){
+            statusElement.style.color = "red";
+        }else{
+            statusElement.style.color = "white";
+        }
         statusElement.text = resp.body;
     }
 
