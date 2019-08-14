@@ -30,9 +30,11 @@ html, body {
     font-style: italic
 }
 
+
 #butlerResponse{
     color: #ff8585;
     padding-top: 10px;
+    margin-bottom: 10px;
 }
 
 #header{
@@ -176,7 +178,29 @@ hr{
     background-color: #595959;
     padding: 30px;
     margin-top:10px;
+      border: 1px solid #aaa;
+      margin-bottom: 30px;
+
 }
+
+#input{
+    text-align: left;
+    width: 1000px;
+        padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #595959;
+    margin-top:10px;
+}
+
+#instructions{
+    margin-bottom: 10px;
+}
+
+#inputElement{
+    width: 1000px;
+}
+
 
 .loadingScreen{
     width: 400px;
