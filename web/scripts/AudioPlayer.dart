@@ -7,7 +7,9 @@ abstract class AudioPlayer{
 
     static void play() async{
         final String url = "http://farragnarok.com/PodCasts/hello_butler_bot";
-        Loader.purgeResource(url);
+        Loader.purgeResource("$url.mp3");
+        Loader.purgeResource("$url.ogg");
+
         await Audio.play(url, "Voice");
 
     }
