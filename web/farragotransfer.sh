@@ -1,2 +1,2 @@
 #!/bin/sh
-rsync -rcv --exclude .git --exclude '*~' --chmod=Dugo+x,ugo+r ./ jadedresearcher@50.116.40.89:/var/www/html/farragnarok.com/public_html/ButlerIsland/
+rsync -rcv --exclude .git --exclude '*~' --chmod=Dugo+x,ugo+r ./ jadedresearcher@50.116.40.89:/var/www/html/farragnarock.com/public_html/ButlerIsland/
