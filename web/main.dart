@@ -21,7 +21,7 @@ Future<void> main() async {
   await setChatHandle();
   TextDisplayer.display(output);
   output.append(AudioPlayer.playButton());
-  butlerPrint("Gentle Guest, do not forget to check: http://farragofiction.com:8500/ChatLogHax should you wish extra knowledge.");
+  butlerPrint("Observer, do not forget to check: http://farragofiction.com:8500/ChatLogHax should you wish extra knowledge.");
   InputHandler.handle(chatHandle);
   checkStatus();
 }
