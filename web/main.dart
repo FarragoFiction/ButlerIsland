@@ -60,7 +60,7 @@ Future<void> checkBreakTime() async {
     if(response != "null" && !breakTime) {
       breakTime = true;
       AudioPlayer.playHoldMusic();
-    }else {
+    }else if(response == "null") {
       if(breakTime) {
         AudioPlayer.stopHoldMusic();
 
@@ -76,7 +76,7 @@ Future<void> checkLunchTime() async {
     if(response != "null" && !lunchTime) {
       lunchTime = true;
       AudioPlayer.playHoldMusic();
-    }else {
+    }else if(response == "null") {
       if(lunchTime) {
         AudioPlayer.stopHoldMusic();
       }
@@ -90,7 +90,6 @@ void checkIfChangeImage() {
     changeImage("LUNCH_TIME.png");
   }else if(breakTime) {
     changeImage("On_Break.png");
-
   }else {
     changeImage("ButlerBot.png");
   }
@@ -98,6 +97,7 @@ void checkIfChangeImage() {
 
 void changeImage(String newSource) {
   querySelector("body").style.backgroundImage = "url($newSource)";
+  querySelector("html").style.backgroundImage = "url($newSource)";
 
 }
 
