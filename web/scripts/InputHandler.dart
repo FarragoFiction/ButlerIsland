@@ -2,6 +2,8 @@ import 'dart:html';
 
 import 'package:http/http.dart';
 
+import '../main.dart';
+
 abstract class InputHandler {
     static TextAreaElement textAreaElement = new TextAreaElement()..id = "inputElement"..text = "What is going on here?";
     static DivElement statusElement = new DivElement()..id = "status";
@@ -22,6 +24,7 @@ abstract class InputHandler {
     }
 
     static Future<void> submitInput(String chatHandle) async {
+        checkBreak();
         final Response resp =   await get("http://farragofiction.com:8500/TalkButlerBot?chatHandle=$chatHandle&input=${textAreaElement.value}");
         if(resp.body.contains("wait")){
             statusElement.style.color = "red";
