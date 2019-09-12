@@ -14,6 +14,9 @@ import 'package:recase/recase.dart';
 String chatHandle = "";
 Element output = querySelector("#output");
 bool breakTime = false;
+String url = "http://farragofiction.com:8500";
+//String url = "localhost:8500"; gets cors errors  don't do this
+
 bool lunchTime = false;
 Future<void> main() async {
   new Audio();
@@ -25,7 +28,7 @@ Future<void> main() async {
   await setChatHandle();
   TextDisplayer.display(output);
   output.append(AudioPlayer.playButton());
-  butlerPrint("Observer, do not forget to check: http://farragofiction.com:8500/ChatLogHax should you wish extra knowledge.");
+  butlerPrint("Observer, do not forget to check: ${url}/ChatLogHax should you wish extra knowledge.");
   InputHandler.handle(chatHandle);
   checkStatus();
 }
@@ -40,9 +43,10 @@ Future<void> setChatHandle() async {
 Future<void> checkStatus() async {
   butlerPrint("Awaiting input.");
   checkBreak();
-  await HttpRequest.getString("http://farragofiction.com:8500/ResponseStatus").then((String response) {
+  await HttpRequest.getString("${url}/ResponseStatus").then((String response) {
+    butlerPrint("got status response");
     butlerPrint(response);
-    TextDisplayer.display(output);
+        TextDisplayer.display(output);
     AudioPlayer.play();
     checkStatus();
   });
@@ -55,7 +59,7 @@ void checkBreak() async {
 }
 
 Future<void> checkBreakTime() async {
-  await HttpRequest.getString("http://farragofiction.com:8500/BreakTime").then((String response) {
+  await HttpRequest.getString("${url}/BreakTime").then((String response) {
     //change image to sign if not null
     if(response != "null" && !breakTime) {
       breakTime = true;
@@ -71,7 +75,7 @@ Future<void> checkBreakTime() async {
 }
 
 Future<void> checkLunchTime() async {
-  await HttpRequest.getString("http://farragofiction.com:8500/LunchTime").then((String response) {
+  await HttpRequest.getString("${url}/LunchTime").then((String response) {
     //change image to sign if not null also load music
     if(response != "null" && !lunchTime) {
       lunchTime = true;
